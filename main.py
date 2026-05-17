@@ -18,6 +18,15 @@ class Carro(BaseModel):
     estado: str = Field(min_length=1, description="Estado del carro (cargando, descargando, disponible, mantenimiento)")
     capacidad: float = Field(gt=0, description="Capacidad de carga en kilogramos")
 
+
+# ========== MODELO DE USUARIO ==========
+class Usuario(BaseModel):
+    id: int = Field(gt=0, description="ID del usuario")
+    nombre: str = Field(min_length=3, max_length=50, description="Nombre del usuario")
+    telefono: str = Field(min_length=7, max_length=15, description="Número de teléfono")
+    correo: str = Field(min_length=5, max_length=100, description="Correo electrónico")
+    ciudad: str = Field(min_length=3, max_length=50, description="Ciudad del usuario")
+
 # Base de datos simulada de carros
 db_carros = [
     {"id": 1, "placa": "SDF156", "modelo": "Renault Zoe", "tipo_cargador": "eléctrico", "estado": "cargando", "capacidad": 400},
